@@ -1,0 +1,24 @@
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .card-image {
+        height: 130px;
+        width: 130px;
+        border-radius: 50%;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .details-container {
+        margin-left: 16px;
+        width: 75%;
+
+        .details-title {
+            font-size: 20px;
+            color: rgba(0,0,0,0.82);
+        }
+    }
+}

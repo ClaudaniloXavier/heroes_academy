@@ -1,0 +1,136 @@
+<ui-page class="page-content v-spaced">
+    <ui-container class="centered">
+
+        <ui-card class="ui-s600" *ngIf="selectedHero">
+
+            <div style="display: flex; margin: 16px">
+                <div class="card-image"
+                     [ngStyle]="{'background-image': selectedHero.image ? 'url(' + selectedHero.image + ')' : '' }">
+                </div>
+
+                <div class="details-container">
+                    <span class="details-title">{{selectedHero.heroName}} details!</span>
+
+                    <div class="details-content" style="margin-top: 16px;">
+
+                        <div class="ui-flex lte-xs-full space-16">
+                            <ui-input-container>
+                                <input type="text" [(ngModel)]="selectedHero.realName" readonly>
+                                <label>Real name</label>
+                            </ui-input-container>
+
+                            <ui-input-container>
+                                <input type="text" [(ngModel)]="selectedHero.heroName" readonly>
+                                <label>Álias</label>
+                            </ui-input-container>
+                        </div>
+
+                        <div class="ui-flex lte-xs-full space-16">
+                            <ui-input-container>
+                                <input type="text" [(ngModel)]="selectedHero.hometown" readonly>
+                                <label>Hometown</label>
+                            </ui-input-container>
+
+                            <ui-input-container>
+                                <input type="text" [(ngModel)]="selectedHero.superpower" readonly>
+                                <label>Super power/ weapon</label>
+                            </ui-input-container>
+                        </div>
+
+                        <ui-input-container>
+                            <textarea [(ngModel)]="selectedHero.bio" rows="8" readonly></textarea>
+                            <label>Biograph</label>
+                        </ui-input-container>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </ui-card>
+
+        <ui-card class="ui-s480" style="margin-top: 12px">
+            <ui-card-title>{{title}}</ui-card-title>
+
+            <ul class="ui-list division" style="margin-top: 12px; border-top: 1px solid rgba(0,0,0,0.1)">
+
+                <li class="ui-item clickable s-l2 s-only-dense"
+                    *ngFor="let hero of heroes"
+                    (click)="onSelect(hero)">
+                    <div class="item-cover">
+                        <div class="item-avatar"
+                             [ngStyle]="{
+                             'background-image': hero.image ? 'url(' + hero.image + ')' : '',
+                             'background-color': hero.image ?  'white' : hero.color}">
+                            {{!hero.image ? hero.realName.charAt(0).toUpperCase() : ''}}
+                        </div>
+
+                        <div class="list-text ui-ellipsis">
+                            <span>{{hero.realName}}</span>
+                            <div class="secondary ui-ellipsis">
+                                Also known as {{hero.heroName}}.
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </ui-card>
+
+    </ui-container>
+</ui-page>
+
+
+<!--<ui-struct>-->
+
+<!--<ui-toolbar class="bg-blue-grey-900">-->
+
+<!--<div class="fixed-placeholder"></div>-->
+
+<!--<div class="toolbar-content">-->
+<!--<div class="title-container bordered">-->
+<!--<div class="title ellipsis">Home</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="keep-right align-middle">-->
+<!--<div class="user-area clickable">-->
+<!--<div class="info">-->
+<!--<div class="primary">Claudanilo Xavier</div>-->
+<!--<div class="secondary">claudaniloxavier@gmail.com</div>-->
+<!--</div>-->
+<!--<div class="profile-pic" style="background-color: #F44336; color: rgba(255, 255, 255, 1);">C</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<ui-context-menu></ui-context-menu>-->
+
+<!--</ui-toolbar>-->
+<!--<header class="ui-toolbar-placeholder bg-blue-grey-900"></header>-->
+
+<!--<nav class="ui-fixed-toolbar">-->
+<!--<button class="xsmall icon dar ui-button">-->
+<!--<div class="ui-hamburger-icon dark">-->
+<!--<div class="bar"></div>-->
+<!--<div class="bar"></div>-->
+<!--<div class="bar"></div>-->
+<!--</div>-->
+<!--</button>-->
+<!--<img style="max-width: 100%; max-height: 100%; width: auto" src="../assets/logo/flash_logo.svg" alt="Logo academy">-->
+<!--<h3 style="color: #FFF; font-weight: 500; font-size: 15px" >Hero Academy</h3>-->
+<!--</nav>-->
+
+<!--&lt;!&ndash;<ui-drawer>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="toolbar-offset"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="drawer-content">&ndash;&gt;-->
+<!--&lt;!&ndash;<ui-main-menu></ui-main-menu>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</ui-drawer>&ndash;&gt;-->
+<!--&lt;!&ndash;<ui-drawer-background></ui-drawer-background>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<ui-pages class="ui-animation-container">&ndash;&gt;-->
+<!--&lt;!&ndash;<ui-page-cover ui-view style="height: 100%"></ui-page-cover>&ndash;&gt;-->
+<!--&lt;!&ndash;</ui-pages>&ndash;&gt;-->
+<!--</ui-struct>-->
+
+<!--&lt;!&ndash;<router-outlet> </router-outlet>&ndash;&gt;-->
+
